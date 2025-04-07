@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="melon.jpg" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Poyezd va Yuk Ma'lumotlari</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Poyezd va Yuk Ma'lumotlarini Qo'shish</h1>
+
+        <!-- Poyezd qo'shish formasi -->
+        <div class="box">
+            <form id="train-form">
+                <h2>Poyezd Qo'shish</h2>
+                <label for="train_name">Poyezd Nomi:</label>
+                <input type="text" id="train_name" name="train_name" required>
+                
+                <label for="departure_station">Jo'nash Stansiyasi:</label>
+                <input type="text" id="departure_station" name="departure_station" required>
+                
+                <label for="departure_time">Jo'nash Vaqti:</label>
+                <input type="datetime-local" id="departure_time" name="departure_time" required>
+    
+                <label for="arrival_station">Kelish Stansiyasi:</label>
+                <input type="text" id="arrival_station" name="arrival_station" required>
+                
+                <label for="arrival_time">Kelish Vaqti:</label>
+                <input type="datetime-local" id="arrival_time" name="arrival_time" required>
+        
+                <button type="submit">Poyezd Qo'shish</button>
+            </form>
+    
+            <!-- Yuk qo'shish formasi -->
+            <form id="cargo-form">
+                <h2>Yuk Qo'shish</h2>
+                <label for="train_id">Poyezd Tanlang:</label>
+                <select id="train_id" name="train_id" required></select>
+    
+                <label for="cargo_type">Yuk Turi:</label>
+                <input type="text" id="cargo_type" name="cargo_type" required>
+    
+                <label for="weight">Yuk Og'irligi:</label>
+                <input type="number" id="weight" name="weight" required>
+    
+                <label for="sender">Yuboruvchi:</label>
+                <input type="text" id="sender" name="sender" required>
+    
+                <label for="receiver">Oluvchi:</label>
+                <input type="text" id="receiver" name="receiver" required>
+    
+                <button type="submit">Yuk Qo'shish</button>
+            </form>
+        </div>
+
+        <div class="jadvallar">
+            <h2>Poyezdlar ro'yxati</h2>
+        <table class="trainList">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Poyezd</th>
+                    <th>Jo'natuvchi stansiya</th>
+                    <th>Qabul qiluvchi stansiya</th>
+                    <th>Ketish vaqti</th>
+                    <th>Borish vaqti</th>
+                    <th>❌</th>
+                </tr>
+            </thead>
+            <tbody id="train-list">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Yuklar ro'yxati</h2>
+        <table class="cargoList">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Tovar turi/nomi</th>
+                    <th>Og'irligi</th>
+                    <th>Jo'natuvchi</th>
+                    <th>Qabul qiluvchi</th>
+                </tr>
+            </thead>
+            <tbody id="cargo-list">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+
+
+
+
+       <div class="sortWeight filtr">
+        <input type="number" id="total">
+        <select id="weightSelect">
+            <option value="less">KAM</option>
+            <option value="more">KO‘P</option>
+        </select>
+          
+          <button onclick="loadCargoTrains()">Ko‘rsatish</button>
+          
+          <table>
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>ID</th>
+                    <th>Poyezd</th>
+                    <th>Jo'nash st</th>
+                    <th>Kelish st</th>
+                    <th>Yuk turi</th>
+                    <th>Og'irlik</th>
+                    <th>Yuboruvchi</th>
+                    <th>Oluvchi</th>
+                </tr>
+            </thead>
+            <tbody id="trainList">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+          </table>
+       </div>
+       <div class="sortStation filtr">
+        <input type="text" id="stationInput" placeholder="Stansiya nomini kiriting">
+        <button onclick="filterByStation()">Qidirish</button>
+        
+        <table id="stationTable" style="margin-top: 20px; width: 100%; text-align: left;">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Poyezd nomi</th>
+              <th>Jo‘nash stansiyasi</th>
+              <th>Kelish stansiyasi</th>
+              <th>Kelish vaqti</th>
+              <th>Yuklar</th>
+            </tr>
+          </thead>
+          <tbody id="stationTableBody">
+          </tbody>
+        </table>
+       </div>
+    </div>
+
+</body>
+</html>

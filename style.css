@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+h1 {
+    color: #000016;
+    padding: 15px 0;
+}
+.box {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+.box form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+form h2 {
+    background-color: burlywood;
+    padding: 5px 8px;
+    border-radius: 8px;
+    color: #000016;
+}
+form label {
+    color: #000016;
+    font-size: 20px;
+    font-weight: 600;
+}
+form input, form select , form button {
+    padding: 5px 8px;
+    border-radius: 8px;
+    background-color: cornsilk;
+    font-size: 17px;
+    font-weight: 500;
+    border: 1.5px solid grey;
+}
+table thead {
+    background-color: darkkhaki;
+}
+.jadvallar {
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+    padding: 10px;
+}
+.jadvallar table {
+    position: relative;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+table tr {
+    display: grid;
+    width: 100%;
+    position: relative;
+}
+table.trainList tr {
+    grid-template-columns: 5% 18% 18% 18% 18% 18% 5%;
+}
+table.cargoList tr {
+    grid-template-columns: 5% 24% 23% 24% 24%;
+}
+table tr th, tr td {
+    position: relative;
+    border: 1.8px solid #000016;
+    padding: 5px;
+}
+.filtr {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+.filtr select, .filtr button , .filtr input {
+    padding: 5px 8px;
+    border-radius: 8px;
+    background-color: rgb(4, 236, 4);
+    font-size: 17px;
+    font-weight: 500;
+    border: 1.5px solid grey;
+}
+.filtr table {
+    position: relative;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+.filtr table tr {
+    display: grid;
+    grid-template-columns: 5% 5% 10% 15% 15% 10% 10% 15% 15%;
+}
+.sortStation table tr {
+    display: grid;
+    grid-template-columns: 5% 19% 19% 19% 19% 19%;
+}
